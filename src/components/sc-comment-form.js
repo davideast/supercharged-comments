@@ -5,9 +5,9 @@ export class CommentForm extends SCElement {
 
   static template(state) {
     return html`
-      <sc-author></sc-author>
-      <textarea></textarea>
-      <button class="sc-btn">Send</button>    
+      <sc-author author-name="${state.authorName}"></sc-author>
+      <textarea id="txtContent"></textarea>
+      <button id="btnSend" class="sc-btn">Send</button>    
     `;
   }
 
@@ -20,7 +20,13 @@ export class CommentForm extends SCElement {
   }
 
   connectedCallback() {
-
+    this.btnSend = this.querySelector('#btnSend');
+    this.txtContent = this.querySelector('#txtContent');
+    this.btnSend.addEventListener('click', e => {
+      const text = this.txtContent.value;
+      const event = new CustomEvent('comment-created', { detail: { text } });
+      this.dispatchEvent(event);
+    });
   }  
 
 }
