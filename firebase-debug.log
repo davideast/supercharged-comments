@@ -1,0 +1,53 @@
+[debug] [2018-02-16T20:43:24.554Z] ----------------------------------------------------------------------
+[debug] [2018-02-16T20:43:24.559Z] Command:       /Users/deast/.nvm/versions/node/v6.11.1/bin/node /Users/deast/.nvm/versions/node/v6.11.1/bin/firebase serve --only hosting,functions
+[debug] [2018-02-16T20:43:24.560Z] CLI Version:   3.17.3
+[debug] [2018-02-16T20:43:24.560Z] Platform:      darwin
+[debug] [2018-02-16T20:43:24.560Z] Node Version:  v6.11.1
+[debug] [2018-02-16T20:43:24.562Z] Time:          Fri Feb 16 2018 13:43:24 GMT-0700 (MST)
+[debug] [2018-02-16T20:43:24.562Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-02-16T20:43:24.588Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-02-16T20:43:24.589Z] > authorizing via signed-in user
+[debug] [2018-02-16T20:43:24.593Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/supercharged-comments  
+  
+ Fri Feb 16 2018 13:43:24 GMT-0700 (MST)
+[debug] [2018-02-16T20:43:25.012Z] <<< HTTP RESPONSE 200
+[debug] [2018-02-16T20:43:25.014Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/supercharged-comments/tokens  
+  
+ Fri Feb 16 2018 13:43:25 GMT-0700 (MST)
+[debug] [2018-02-16T20:43:25.647Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/deast/Documents/supercharged'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2018-02-16T20:43:26.867Z] Fetching environment
+[debug] [2018-02-16T20:43:26.870Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/supercharged-comments  
+  
+ Fri Feb 16 2018 13:43:26 GMT-0700 (MST)
+[debug] [2018-02-16T20:43:26.871Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/supercharged-comments/apiKeys  
+  
+ Fri Feb 16 2018 13:43:26 GMT-0700 (MST)
+[debug] [2018-02-16T20:43:26.872Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/supercharged-comments  
+  
+ Fri Feb 16 2018 13:43:26 GMT-0700 (MST)
+[debug] [2018-02-16T20:43:27.105Z] <<< HTTP RESPONSE 200
+[debug] [2018-02-16T20:43:27.163Z] <<< HTTP RESPONSE 200
+[debug] [2018-02-16T20:43:27.164Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/116806762306/clients/_:getWebAppConfig  
+  
+ Fri Feb 16 2018 13:43:27 GMT-0700 (MST)
+[debug] [2018-02-16T20:43:27.167Z] <<< HTTP RESPONSE 200
+[debug] [2018-02-16T20:43:27.169Z] Starting @google-cloud/functions-emulator
+[debug] [2018-02-16T20:43:27.408Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] ✔  hosting: Local server: http://localhost:5000
+
+[debug] [2018-02-16T20:43:29.764Z] Parsing function triggers
+[info] ✔  functions: supercharged: http://localhost:5001/supercharged-comments/us-central1/supercharged
+[info] [hosting] Rewriting / to local function supercharged
+[info] [hosting] Rewriting / to local function supercharged
+[info] [hosting] Rewriting / to local function supercharged
+[info] [hosting] Rewriting / to local function supercharged
+[info] [hosting] Rewriting / to local function supercharged
+[info] [hosting] Rewriting / to local function supercharged
+[info] [hosting] Rewriting / to local function supercharged
+[info] [hosting] Rewriting / to local function supercharged

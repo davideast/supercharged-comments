@@ -28,5 +28,5 @@ export class CommentForm extends SCElement {
 let template;
 if (typeof window !== 'undefined') {
   template = document.createElement('template');
-  template.innerHTML = CommentForm.template();
+  template.innerHTML = CommentForm.template({ });
 }
