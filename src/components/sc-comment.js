@@ -1,4 +1,4 @@
-import { SCElement } from './sc-element';
+import { SCElement } from './sc-element.js';
 
 let html = String.raw;
 
@@ -8,6 +8,14 @@ export class Comment extends SCElement {
       <sc-author>
       </sc-author>
       <div class="sc-comment-text">Yo.</div>
+    `;
+  }
+
+  static component(state) {
+    return html`
+      <sc-comment>
+        ${this.template(state)}
+      </sc-comment>
     `;
   }
 

@@ -1,7 +1,9 @@
 
-let HTMLElement;
+let _HTMLElement;
 if (typeof process !== 'undefined') {
-  HTMLElement = class HTMLElement {};
+  _HTMLElement = class HTMLElement {};
+} else {
+  _HTMLElement = HTMLElement;
 }
 
-export class SCElement extends HTMLElement {}
+export class SCElement extends _HTMLElement {}

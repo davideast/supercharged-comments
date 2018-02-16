@@ -34,7 +34,7 @@
       margin: 0 auto;
     }
 
-    .sc-comment-form textarea {
+    .sc-comment-form textarea, sc-comment-form textarea {
       background-color: #fdfdfd;
       padding-top: 20px;
       margin: 0px;
@@ -47,14 +47,15 @@
       border: none;
     }
 
-    .sc-commentlist {
+    .sc-commentlist, sc-comment-list {
       padding: 20px 0;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
 
-    .sc-comment {
+    .sc-comment, sc-comment, sc-comment-form {
+      display: block;
       background-color: #fdfdfd;
       border: 1px solid #9c9c9c;
       max-width: 680px;
@@ -62,11 +63,11 @@
       padding: 20px;
     }
 
-    .sc-comment.sc-comment-form {
+    .sc-comment.sc-comment-form, sc-comment-form {
       min-height: 180px;
     }
 
-    .sc-comment-author {
+    sc-author {
       display: flex;
       align-items: center;
       margin-bottom: 15px;
@@ -86,6 +87,7 @@
       border-radius: 6px;
     }
   </style>
+  <script type="module" src="index.js"></script>
 </head>
 
 <body>

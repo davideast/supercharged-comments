@@ -1,6 +1,7 @@
+import { SCElement } from './sc-element.js'
 let html = String.raw;
 
-export class Author extends HTMLElement {
+export class Author extends SCElement {
   static template(state) {
     return html`
     <div class="sc-comment-avatar">
@@ -11,8 +12,8 @@ export class Author extends HTMLElement {
   }
 
   connectedCallback() {
-    
-  }  
+    this.appendChild(template.content.cloneNode(true));
+  }
 
 }
 
