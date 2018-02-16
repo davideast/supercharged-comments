@@ -1,0 +1,24 @@
+{
+  "name": "supercharged",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "babel:components": "babel src/components/ -d functions/components",
+    "build": "yarn build:clean && yarn build:server && yarn build:client",
+    "build:clean": "rm -rf public",
+    "build:components": "cpx src/components/**/* public/components",
+    "build:server": "cpx src/server/**/* functions && yarn babel:components",
+    "build:client": "cpx src/client/**/* public && yarn build:components",
+    "serve": "firebase serve --only hosting,functions"
+  },
+  "dependencies": {
+    "cpx": "^1.5.0",
+    "firebase": "^4.9.0",
+    "lit-html": "^0.8.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0"
+  }
+}
