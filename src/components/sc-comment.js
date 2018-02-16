@@ -7,7 +7,7 @@ export class Comment extends SCElement {
     return html`
       <sc-author author-name="${state.authorName}">
       </sc-author>
-      <div class="sc-comment-text">Yo.</div>
+      <div class="sc-comment-text">${state.text}</div>
     `;
   }
 
@@ -18,10 +18,6 @@ export class Comment extends SCElement {
       </sc-comment>
     `;
   }
-
-  connectedCallback() {
-
-  } 
 }
 
 let template;

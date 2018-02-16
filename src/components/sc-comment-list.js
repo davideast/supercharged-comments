@@ -1,4 +1,5 @@
 import { SCElement } from './sc-element.js';
+import { Comment } from './sc-comment.js';
 
 let html = String.raw;
 
@@ -12,8 +13,10 @@ export class CommentList extends SCElement {
     `;
   }
 
-  connectedCallback() {
-    
-  }  
+  addComment(state) {
+    const el = document.createElement('sc-comment');
+    el.innerHTML = Comment.template(state);
+    this.appendChild(el);
+  }
 
 }

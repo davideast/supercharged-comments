@@ -12,21 +12,20 @@ const firebaseApp = firebase.initializeApp(functions.config().firebase);
 const app = express();
 
 const pageBuilder = (index) => {
-  let page = index;
   return {
-    page,
+    page: index,
     replace(holder, replacement) {
-      return this.page = this.page.replace(holder, replacement);
+      this.page = this.page.replace(holder, replacement);
     },
     addCommentForm(state) {
-      this.page = this.replace('<!-- ::COMMENT_FORM:: -->', 
+      this.replace('<!-- ::COMMENT_FORM:: -->', 
         CommentForm.component(state));
       return this;
     },
     addCommentList(state) {
       const comments = state.comments.map(c => Comment.component(c)).join('');
       const commentList = CommentList.component(comments);
-      this.page = this.replace('<!-- ::COMMENT_LIST:: -->', commentList);
+      this.replace('<!-- ::COMMENT_LIST:: -->', commentList);
       return this;
     },
     build() {
@@ -36,12 +35,16 @@ const pageBuilder = (index) => {
 };
 
 app.get('/', (req, res) => {
-  const state = { comments: [{ authorName: 'David East', text: 'yoooo'}] };
-  const page = pageBuilder(index)
-    .addCommentForm({ authorName: 'David East' })
-    .addCommentList(state)
-    .build();
-  res.send(page);
+  const commentsRef = firebaseApp.firestore().collection('comments');
+  commentsRef.get().then(snap => {
+    const comments = snap.docs.map(d => d.data());
+    const state = { comments };
+    const page = pageBuilder(index)
+      .addCommentForm({ authorName: 'David East' })
+      .addCommentList(state)
+      .build();
+    res.send(page);
+  });
 });
 
 exports.supercharged = functions.https.onRequest(app);

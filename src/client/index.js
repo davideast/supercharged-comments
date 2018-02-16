@@ -8,16 +8,21 @@ customElements.define('sc-comment-form', CommentForm);
 customElements.define('sc-comment-list', CommentList);
 customElements.define('sc-comment', Comment);
 
-Promise.all(
+Promise.all([
   customElements.whenDefined('sc-comment-form'),
   customElements.whenDefined('sc-comment-list'),
   customElements.whenDefined('sc-comment')
-)
+])
 .then(() => {
 
   const scForm = document.querySelector('sc-comment-form');
+  const scList = document.querySelector('sc-comment-list');
+
   scForm.addEventListener('comment-created', e => {
-    
+    scList.addComment({
+      authorName: 'David East',
+      ...e.detail
+    });
   });
 
 });

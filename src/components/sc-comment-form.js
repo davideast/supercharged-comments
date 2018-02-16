@@ -26,6 +26,7 @@ export class CommentForm extends SCElement {
       const text = this.txtContent.value;
       const event = new CustomEvent('comment-created', { detail: { text } });
       this.dispatchEvent(event);
+      this.txtContent.value = '';
     });
   }  
 
