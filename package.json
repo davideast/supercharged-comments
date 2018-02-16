@@ -10,6 +10,7 @@
     "build:components": "cpx src/components/**/* public/components",
     "build:server": "cpx src/server/**/* functions && yarn babel:components",
     "build:client": "cpx src/client/**/* public && yarn build:components",
+    "build:firebase": "cp node_modules/firebase/firebase-app.js public/lib/firebase-app.js && cp node_modules/firebase/firebase-firestore.js public/lib/firebase-firestore.js",
     "serve": "firebase serve --only hosting,functions"
   },
   "dependencies": {

@@ -17,12 +17,34 @@ Promise.all([
 
   const scForm = document.querySelector('sc-comment-form');
   const scList = document.querySelector('sc-comment-list');
+  const commentsRef = firebase.firestore().collection('comments');
 
   scForm.addEventListener('comment-created', e => {
-    scList.addComment({
+    commentsRef.add({
       authorName: 'David East',
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       ...e.detail
     });
+  });
+
+  commentsRef
+    .orderBy('timestamp')
+    .onSnapshot(snap => {
+    snap.docChanges
+      .forEach(change => {
+        const elInDom = scList.getComment(`#_${change.doc.id}`);
+        switch(change.type) {
+          case 'added': {
+            if(elInDom) { return; }
+            scList.addComment(change.doc.data(), change.doc.id);
+            break;
+          }git
+          case 'removed': {
+            elInDom.remove();
+            break;
+          }
+        }
+      });
   });
 
 });

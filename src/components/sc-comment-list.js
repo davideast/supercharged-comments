@@ -13,8 +13,13 @@ export class CommentList extends SCElement {
     `;
   }
 
-  addComment(state) {
+  getComment(docName) {
+    return this.querySelector(`$_${docName}`);
+  }
+
+  addComment(state, id) {
     const el = document.createElement('sc-comment');
+    el.id = id;
     el.innerHTML = Comment.template(state);
     this.appendChild(el);
   }

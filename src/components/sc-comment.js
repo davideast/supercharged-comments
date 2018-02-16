@@ -11,9 +11,9 @@ export class Comment extends SCElement {
     `;
   }
 
-  static component(state) {
+  static component(state, id) {
     return html`
-      <sc-comment>
+      <sc-comment id="_${id}">
         ${this.template(state)}
       </sc-comment>
     `;

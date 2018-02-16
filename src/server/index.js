@@ -23,7 +23,7 @@ const pageBuilder = (index) => {
       return this;
     },
     addCommentList(state) {
-      const comments = state.comments.map(c => Comment.component(c)).join('');
+      const comments = state.comments.map(c => Comment.component(c, c.id)).join('');
       const commentList = CommentList.component(comments);
       this.replace('<!-- ::COMMENT_LIST:: -->', commentList);
       return this;
@@ -36,8 +36,8 @@ const pageBuilder = (index) => {
 
 app.get('/', (req, res) => {
   const commentsRef = firebaseApp.firestore().collection('comments');
-  commentsRef.get().then(snap => {
-    const comments = snap.docs.map(d => d.data());
+  commentsRef.orderBy('timestamp').get().then(snap => {
+    const comments = snap.docs.map(d => Object.assign({ id: d.id }, d.data()));
     const state = { comments };
     const page = pageBuilder(index)
       .addCommentForm({ authorName: 'David East' })
